@@ -1,0 +1,402 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/*GENERAL */
+*{
+	box-sizing: border-box;
+	padding:0;
+	margin:0;
+}
+body{
+	font-family:"Josefin Sans", sans-serif;
+	font-size:1.3rem;
+	}
+.page-container{
+	overflow:hidden;
+}
+
+#checkbox{
+	display:none;
+	}
+
+nav a, .foot a {
+	text-decoration:none;
+	text-transform:lowercase;
+	}
+
+nav li:hover, nav li:hover> a, .foot a:hover {
+	text-decoration:none;
+	font-weight:bold;
+	text-transform:uppercase;
+	}
+	
+
+nav a, .foot a {
+	text-decoration:none;
+	text-transform:lowercase;
+	}
+	.page-head{
+		margin-bottom:2vh;
+	}
+
+
+/*COLORS*/
+body, a{
+	color: #fff;
+}
+.menu-wrap, nav{
+	background-color:hsl(207, 49%, 28%);
+	}
+nav ul li:hover{
+	background-color:hsl(173,70%,36%);
+	}
+.logo, .foot{
+	background-color:hsl(240, 40%, 25%);
+	}
+.gallery{
+	background-color:hsl(240, 15%, 25%);
+	border:thick hsl(240, 15%, 25%) solid;
+	}
+button[type=submit] {
+	background-color:hsl(207, 49%, 40%);
+	color:#fff;
+	font-weight:bold;
+	font-size:100%;
+	}	
+button[type=submit]:hover{
+	background-color:hsl(173, 60%, 50%);	
+	}
+button[type=submit]:active{
+	background-color:hsl(173, 60%, 70%);	
+	}
+/*Contact form CSS - Maybe can leave here because it will be the same on both formats*/
+label{
+	display:inline-block;
+	width:100%;
+	margin:1% 0;
+}
+#contactform {
+	margin: 0 5vw;
+	
+}
+input{
+	background-color:hsla(0,0%,100%,.75);
+	padding:1%;
+	font-size:110%;
+	width:100%;
+}
+#textarea {
+	width:100%;
+	height:33vh;
+	background-color:hsla(0,0%,100%,.75);
+	padding:1%;
+	font-size:110%;
+}
+
+button[type=submit] {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+/*MOBILE LAYOUT*/
+@media screen and (max-width:767px) {
+	/*NAVIGATION AND HAMBURGER MENU - MOBILE */
+	.menu-wrap{
+		grid-area:navbar;
+		height: 2em;
+		padding: 5px 15px;
+		width: 100%;
+		text-align:left;
+		}	
+
+	.menu-icon {
+		font-size: 1em;
+		justify-text:center;
+	}
+
+	nav {
+	   position: absolute;
+	   top: 5em;
+	   left:0;
+	   width: 100%;
+		}
+
+	nav ul {
+	   list-style-type: none;
+	   max-height: 0em;
+	   overflow: hidden;
+	   transition: max-height 0,5s;
+		}
+
+	nav ul li {
+		padding:1%;
+		}
+
+	nav ul a {
+		display: block;
+		padding: .75em 1.75em;
+		text-decoration: none;
+		text-align:center;
+		}
+
+	#checkbox:checked ~ nav ul {
+	   max-height: 20em;
+		}
+	
+	/*WHOLE PAGE GRID - MOBILE */
+	.page-container{
+		display:grid;
+		width:100vw;
+		height:100vh;
+		grid-template-columns:1fr 3fr;
+		grid-template-rows:5em 2em 1fr 3em;
+		grid-template-areas:
+			"logo banner"
+			"navbar navbar"
+			"gallery gallery"
+			"foot foot";
+		}
+
+
+	/*LOGO, BANNER - MOBILE */
+	.banner{
+		grid-area:banner;
+		width:100%;
+		height:100%;
+		object-fit:cover;
+	}
+	.logo{
+		grid-area:logo;
+		object-fit:scale-down;
+		padding:5%;
+		height:100%;
+		width:100%;
+		text-align:center;
+	}
+
+	/*FOOTER - MOBILE*/
+	.foot{
+		grid-area:foot;
+		text-align:center;
+		align-content: center;
+		padding:2%;
+		min-height:2vh;
+	}
+	.social-list{
+		display:flex;
+		flex-wrap:wrap;
+		list-style:none;
+		justify-content:space-around;
+		text-decoration:none;
+	}
+
+
+	/*GALLERY - MOBILE*/
+	.gallery{
+		grid-area:gallery;
+		display:block;
+		padding:3%;
+		overflow-y:scroll;
+		}
+
+	.portfolio-grid{
+		display:block;
+		overflow-y:scroll;
+		text-align:center;
+		}
+
+	.portfolio-image{
+		object-fit:contain;
+		max-width:100%;
+		height:auto;
+		border:solid thick white;
+		}
+	
+	/*ABOUT ME - MOBILE*/
+	#aboutme{
+		display:block;
+		grid-template-columns:repeat(2, auto);
+		grid-template-rows:repeat(2, auto);	
+		grid-template-areas:
+			"aboutpic bio"
+			"aboutpic favlist";
+		grid-gap:2rem;
+	}
+	#aboutpic{
+		width:100%;
+		margin:0 1vw 2vh;
+		object-fit:cover;
+		border:solid thick white;
+	}
+	#favoriteslist{
+		grid-area: favlist;
+		list-style:none;
+	}
+	#favoriteslist li{
+		text-indent:1rem;
+		line-height:133%;
+	}
+	#aboutme #aboutpara{
+		grid-area:bio;
+		text-indent:5%;
+		margin-bottom:2vh;
+	}
+	
+	/*RESUME - MOBILE */
+	.work-item, .edu-item{
+		margin-bottom:10%;
+		padding-left:3%;
+	}
+	.resume-edu, .resume-work{
+		line-height:150%;
+		
+	}
+	.work-details p, .edu-details p{
+		margin-bottom:10px;
+	}
+
+	.work-summary, .edu-summary{
+		font-style:italic;
+		font-size:1.2rem;
+		padding-left:2rem;
+	}
+}
+
+
+ /* DESKTOP LAYOUT*/
+@media screen and (min-width:768px) {
+
+	.page-container{
+		width:100vw;
+		height:100vh;
+		display:grid;
+		grid-template-columns:15vw 1fr;
+		grid-template-rows:10vh 2fr 1fr;
+		grid-template-areas:
+			"logo banner"
+			"navbar gallery"
+			"foot gallery"
+		}
+
+	/*SIDEBAR CSS - DESKTOP*/
+	#checkbox, .menu-icon {
+		display:none;
+		}
+
+	nav {
+		grid-area:navbar;
+		text-align:center;
+		}
+
+	nav ul, .social-list{
+		list-style: none;
+		display:flex;
+		justify-content: space-around;
+		}
+
+	nav ul{
+		flex-direction:column;
+		margin:50% 0;
+		}
+
+	nav ul li{
+		padding:5%;
+		}
+
+	.foot{
+		grid-area:foot;
+		text-align:center;
+		align-content: center;
+		padding:2%;
+		}
+
+	.social-list{
+		display:flex;
+		flex-direction: column;
+		flex-wrap:wrap;
+		}
+
+	/*GALLERY CSS - DESKTOP*/
+	.gallery{
+		grid-area:gallery;
+		display:block;
+		padding:3%;
+		overflow-y:scroll;
+	}
+	.portfolio-grid{
+		display:grid;
+		grid-template-columns:repeat(3, 1fr);
+		grid-template-rows: auto;
+		grid-gap: 1rem;
+	}
+	.portfolio-image{
+		object-fit:contain;
+		max-width:100%;
+		height:auto;
+		border:solid thick white;
+	}
+
+	.tall-image{
+		grid-row:span 2;
+	}
+
+	/*BANNER AND LOGO CSS - DESKTOP*/
+	.banner{
+		grid-area:banner;
+		width:100%;
+		height:auto;
+		object-fit:cover;
+	}
+
+	.logo{
+		grid-area:logo;
+		object-fit:contain;
+		padding:2%;
+		height:100%;
+		width:100%;
+	}
+	/*ABOUT ME - DESKTOP*/
+	#aboutme{
+		display:grid;
+		grid-template-columns:repeat(2, auto);
+		grid-template-rows:1;	
+		grid-template-areas:
+			"aboutpic bio";
+		grid-gap:2rem;
+	}
+	#aboutpic{
+		grid-area:aboutpic;
+		width:35vw;
+		max-width:900px;
+		border:solid thick white;
+		object-fit:cover;
+	}
+	#aboutpara{
+		grid-area:bio;
+		text-indent:2rem;		
+	}
+	#aboutpara p{
+		margin-bottom:1rem;
+	}
+	
+	/*RESUME - DESKTOP*/
+	.work-item, .edu-item{
+		margin-bottom:2rem;
+		padding-left:3rem;
+	}
+	.resume-edu, .resume-work{
+		line-height:150%;
+		
+	}
+	
+	.work-summary, .edu-summary{
+		font-style:italic;
+		font-size:1.2rem;
+		padding-left:2rem;
+		margin-bottom:3rem;
+	}
+}
